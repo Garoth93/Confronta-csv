@@ -30,6 +30,7 @@ private:
     viewLista * m_viewCompare;
     viewRisultati * m_viewRis;
     int statoVisualizza=0;
+    QString formatoSeparatore=";";
 
 };
 #endif // MAINWINDOW_H

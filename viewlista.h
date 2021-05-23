@@ -23,7 +23,7 @@ public:
     ~viewLista();
 
     /** init*/
-    virtual void init();
+    virtual void init(QString formatoSeparatore);
 
     /** popola view con modello*/
     virtual void popolaModello();
@@ -40,12 +40,16 @@ public:
 
     QList<QStringList> *getListaCompare() const;
 
+    QString getFormatoSeparatore() const;
+    void setFormatoSeparatore(const QString &value);
+
 private:
     Ui::viewLista *ui;
     QStandardItemModel * m_modelPrincipale;
     QString pathFile="";
     QMap<QString,QStringList> * m_mappaPrinc;
     QList<QStringList> * listaCompare;
+    QString formatoSeparatore=";";
 };
 
 #endif // VIEWLISTA_H

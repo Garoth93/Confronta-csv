@@ -1,6 +1,7 @@
 #include "viewrisultati.h"
 #include "ui_viewrisultati.h"
 #include <dialoginfoalert.h>
+#include <dialogseparatore.h>
 
 viewRisultati::viewRisultati(QWidget *parent) :
     QWidget(parent),
@@ -105,14 +106,22 @@ void viewRisultati::salvaDati()
     righeModelo=m_modelPrincipale->rowCount();
     int colRiga=0;
     colRiga=m_modelPrincipale->columnCount();
-    stream << "GID;" << "Errore;" << "Richiesta originale;" << "As-built " << "\n";
+    QString separatore=";";
+    DialogSeparatore * dialSep = new DialogSeparatore(this);
+    dialSep->init(&separatore);
+    dialSep->exec();
+    stream << QString("GID%1").arg(separatore)
+           << QString("Errore%1").arg(separatore)
+           << QString("Richiesta originale%1").arg(separatore)
+           << QString("As-built")
+           << "\n";
     for(int x=0;x<righeModelo;++x)
     {
         for(int y=0; y<colRiga; ++y)
         {
             QString val=m_modelPrincipale->index(x,y).data().toString();
             if(y<(colRiga-1))
-                stream << QString("%1;").arg(val);
+                stream << QString("%1%2").arg(val).arg(separatore);
             else
                 stream << val << "\n";
         }

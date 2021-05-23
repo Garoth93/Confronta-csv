@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     dialoginfoalert.cpp \
+    dialogseparatore.cpp \
     main.cpp \
     mainwindow.cpp \
     viewlista.cpp \
@@ -26,12 +27,14 @@ SOURCES += \
 
 HEADERS += \
     dialoginfoalert.h \
+    dialogseparatore.h \
     mainwindow.h \
     viewlista.h \
     viewrisultati.h
 
 FORMS += \
     dialoginfoalert.ui \
+    dialogseparatore.ui \
     mainwindow.ui \
     viewlista.ui \
     viewrisultati.ui

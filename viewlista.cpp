@@ -14,7 +14,7 @@ viewLista::~viewLista()
     delete ui;
 }
 
-void viewLista::init()
+void viewLista::init(QString formatoSeparatore)
 {
     m_modelPrincipale=nullptr;
     m_mappaPrinc=nullptr;
@@ -49,7 +49,7 @@ void viewLista::popolaModello()
     file.close();
     for (int x = 0; x < rigaTotale.size(); x++)
     {
-        rigaInterna = rigaTotale.at(x).split(";");
+        rigaInterna = rigaTotale.at(x).split(formatoSeparatore);
         listaRigheInterne.push_back(rigaInterna);
     }
 
@@ -140,5 +140,15 @@ QMap<QString, QStringList> *viewLista::mappaPrinc() const
 QList<QStringList> *viewLista::getListaCompare() const
 {
     return listaCompare;
+}
+
+QString viewLista::getFormatoSeparatore() const
+{
+    return formatoSeparatore;
+}
+
+void viewLista::setFormatoSeparatore(const QString &value)
+{
+    formatoSeparatore = value;
 }
 
