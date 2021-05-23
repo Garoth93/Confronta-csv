@@ -6,6 +6,8 @@
 #include <QFile>
 #include <QList>
 #include <QIcon>
+#include <QLabel>
+#include <dialoginfoalert.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -38,7 +40,6 @@ void MainWindow::init()
     m_viewRis->init();
     ui->l_layoutRis->addWidget(m_viewRis);
     m_viewRis->setVisible(false);
-
     connect(ui->b_controlla, &QToolButton::clicked, this, [=]()
     {
         calcolaDifferenze();
@@ -63,6 +64,7 @@ void MainWindow::init()
 
 void MainWindow::calcolaDifferenze()
 {
+    bool trovatoDifferenze=false;
     QMap<QString,QStringList> * m_mappaPrinc;
     QList<QStringList> * listaCompare;
     m_viewPrinc->popolaMappa();
@@ -91,27 +93,52 @@ void MainWindow::calcolaDifferenze()
                 }
                 else
                 {
-                    QStringList li=QStringList() << keyCompare << noKeyCompare <<"Non corrisponde"<< (*m_mappaPrinc)[keyCompare][0];
+                    QStringList li=QStringList() << keyCompare
+                                                 << "Non corrisponde"
+                                                 << (*m_mappaPrinc)[keyCompare][0]
+                                                 << noKeyCompare;
                     m_viewRis->popolaModello(li,QColor("yellow"),1);
+                    trovatoDifferenze=true;
                 }
             }
             else
             {
-                QStringList li= QStringList() << keyCompare << noKeyCompare <<"Trovato più valori";
-                for(int z=0; z<valMappa; z++)
-                {
-                    li.push_back((*m_mappaPrinc)[keyCompare][z]);
-                }
+                QStringList li=QStringList() << keyCompare
+                                             << "Trovato più valori"
+                                             << (*m_mappaPrinc)[keyCompare][0]
+                                             << noKeyCompare;
+//                for(int z=0; z<valMappa; z++)
+//                    li.push_back((*m_mappaPrinc)[keyCompare][z]);
                 m_viewRis->popolaModello(li,QColor(209, 253, 255),2);
+                trovatoDifferenze=true;
             }
         }
         else
         {
-            QStringList li=QStringList() << keyCompare << noKeyCompare <<"Non trovato";
+            QStringList li=QStringList() << keyCompare
+                                         << "Non trovato"
+                                         << "non presente"
+                                         << noKeyCompare;
             m_viewRis->popolaModello(li,QColor("red"),3);
+            trovatoDifferenze=true;
         }
     }
+    m_viewRis->filtra();
     m_viewRis->setVisible(true);
+    if(trovatoDifferenze)
+    {
+        DialogInfoAlert * dialog;
+        dialog=new DialogInfoAlert(this);
+        dialog->init("KO","Problema rilevato","beagle5.png");
+        dialog->exec();
+    }
+    else
+    {
+        DialogInfoAlert * dialog;
+        dialog=new DialogInfoAlert(this);
+        dialog->init("OK","Nessuna problema rilevato","Beagle_Stupendo.png");
+        dialog->exec();
+    }
 }
 
 

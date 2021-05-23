@@ -9,5 +9,7 @@
         <file>save.png</file>
         <file>beagle1.ico</file>
         <file>reset.png</file>
+        <file>Beagle_Stupendo.png</file>
+        <file>beagle5.png</file>
     </qresource>
 </RCC>

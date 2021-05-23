@@ -1,5 +1,6 @@
 #include "viewrisultati.h"
 #include "ui_viewrisultati.h"
+#include <dialoginfoalert.h>
 
 viewRisultati::viewRisultati(QWidget *parent) :
     QWidget(parent),
@@ -55,8 +56,7 @@ void viewRisultati::createModello()
     /*creo model nuovo*/
     m_modelPrincipale = new QStandardItemModel();
 
-    QStringList ll= QStringList() << "key" << "valore" << "errore"
-                                  << "proposto" << "proposto" << "proposto" << "proposto" << "proposto";
+    QStringList ll= QStringList() << "GID" << "Errore" << "Richiesta originale" << "As-built ";
 
     /*setto intestazione colonne*/
     m_modelPrincipale->setHorizontalHeaderLabels(ll);
@@ -105,11 +105,7 @@ void viewRisultati::salvaDati()
     righeModelo=m_modelPrincipale->rowCount();
     int colRiga=0;
     colRiga=m_modelPrincipale->columnCount();
-
-    stream << "valore chiave;" << "valore;" << "tipo errore";
-    for(int x=3; x<colRiga ; x++)
-            stream << ";proposto";
-    stream << "\n";
+    stream << "GID;" << "Errore;" << "Richiesta originale;" << "As-built " << "\n";
     for(int x=0;x<righeModelo;++x)
     {
         for(int y=0; y<colRiga; ++y)
@@ -122,6 +118,10 @@ void viewRisultati::salvaDati()
         }
     }
     file.close();
+    DialogInfoAlert * dialog;
+    dialog=new DialogInfoAlert(this);
+    dialog->init("OK","Salvataggio riuscito","Beagle_Stupendo.png");
+    dialog->exec();
 }
 
 void viewRisultati::filtra()

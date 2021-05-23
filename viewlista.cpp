@@ -60,8 +60,8 @@ void viewLista::popolaModello()
     m_modelPrincipale = new QStandardItemModel();
 
     QStringList ll;
-    ll.insert(0,QString("chiave"));
-    ll.insert(1,QString("valore"));
+    ll.insert(0,QString("GID"));
+    ll.insert(1,QString("Area infratel"));
 
     /*setto intestazione colonne*/
     m_modelPrincipale->setHorizontalHeaderLabels(ll);

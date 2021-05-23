@@ -18,17 +18,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dialoginfoalert.cpp \
     main.cpp \
     mainwindow.cpp \
     viewlista.cpp \
     viewrisultati.cpp
 
 HEADERS += \
+    dialoginfoalert.h \
     mainwindow.h \
     viewlista.h \
     viewrisultati.h
 
 FORMS += \
+    dialoginfoalert.ui \
     mainwindow.ui \
     viewlista.ui \
     viewrisultati.ui
