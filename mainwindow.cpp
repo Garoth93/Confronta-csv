@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     this->init();
+    setWindowIcon(QIcon(":/beagle2.png"));
+    setWindowTitle("g_comparaCsv");
 }
 
 MainWindow::~MainWindow()
@@ -85,12 +87,12 @@ void MainWindow::calcolaDifferenze()
                 /*controllo se valore è uguale*/
                 if((*m_mappaPrinc)[keyCompare][0]==noKeyCompare)
                 {
-                    qDebug() << (*m_mappaPrinc)[keyCompare][0] << noKeyCompare;
+                    //qDebug() << (*m_mappaPrinc)[keyCompare][0] << noKeyCompare;
                 }
                 else
                 {
-                    QStringList li=QStringList() << keyCompare << noKeyCompare <<"non corrisponde"<< (*m_mappaPrinc)[keyCompare][0];
-                    m_viewRis->popolaModello(li,QColor("yellow"));
+                    QStringList li=QStringList() << keyCompare << noKeyCompare <<"Non corrisponde"<< (*m_mappaPrinc)[keyCompare][0];
+                    m_viewRis->popolaModello(li,QColor("yellow"),1);
                 }
             }
             else
@@ -100,13 +102,13 @@ void MainWindow::calcolaDifferenze()
                 {
                     li.push_back((*m_mappaPrinc)[keyCompare][z]);
                 }
-                m_viewRis->popolaModello(li,QColor(209, 253, 255));
+                m_viewRis->popolaModello(li,QColor(209, 253, 255),2);
             }
         }
         else
         {
-            QStringList li=QStringList() << keyCompare << noKeyCompare <<"non trovato";
-            m_viewRis->popolaModello(li,QColor("red"));
+            QStringList li=QStringList() << keyCompare << noKeyCompare <<"Non trovato";
+            m_viewRis->popolaModello(li,QColor("red"),3);
         }
     }
     m_viewRis->setVisible(true);

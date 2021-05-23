@@ -19,13 +19,13 @@ void viewLista::init()
     m_modelPrincipale=nullptr;
     m_mappaPrinc=nullptr;
     listaCompare=nullptr;
-
-    //ui->b_addPrinc->setIcon(QIcon("/Users/alessio/Documents/prog/src/maura/g_comparaFile/entrata.png"));
     ui->b_addPrinc->setIcon(QIcon(":/entrata.png"));
 
     connect(ui->b_addPrinc, &QToolButton::clicked, this, [=]()
     {
         takeFile();
+        if(pathFile=="")
+            return;
         popolaModello();
         popolaMappa();
     });
@@ -75,7 +75,7 @@ void viewLista::popolaModello()
         QList<QStandardItem *>lItms;
         for(int x=0;x<(it)->size();x++)
         {
-            lItms.insert(x,new QStandardItem(QString((*it)[x])));
+            lItms.insert(x,new QStandardItem((QString((*it)[x])).trimmed()));
         }
         m_modelPrincipale->appendRow(lItms);
     }
@@ -90,7 +90,10 @@ void viewLista::takeFile()
     QStringList nomeFIle;
     nomeFIle = dialogTake->selectedFiles();
     delete dialogTake;
-    pathFile=nomeFIle[0];
+    if(nomeFIle.count()!=0)
+        pathFile=nomeFIle[0];
+    else
+        pathFile="";
 }
 
 bool viewLista::popolaMappa()

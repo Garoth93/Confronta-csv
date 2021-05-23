@@ -3,5 +3,11 @@
         <file>entrata.png</file>
         <file>monitor.png</file>
         <file>arrow.png</file>
+        <file>beagle1.png</file>
+        <file>beagle2.png</file>
+        <file>beagle3.png</file>
+        <file>save.png</file>
+        <file>beagle1.ico</file>
+        <file>reset.png</file>
     </qresource>
 </RCC>

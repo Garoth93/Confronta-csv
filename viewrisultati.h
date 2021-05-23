@@ -29,7 +29,15 @@ public:
     /** popola view con modello*/
     virtual void createModello();
 
-    virtual void popolaModello(QStringList lista, QColor col);
+    virtual void popolaModello(QStringList lista, QColor col, int tipoErr);
+
+    virtual void takeFile();
+
+    virtual void salvaDati();
+
+    virtual void filtra();
+
+    virtual void resetFiltri();
 
 private:
     Ui::viewRisultati *ui;
