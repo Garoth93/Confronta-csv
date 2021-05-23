@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>entrata.png</file>
+        <file>monitor.png</file>
+        <file>arrow.png</file>
+    </qresource>
+</RCC>
