@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2021-05-22T23:47:11. -->
+<!-- Written by QtCreator 4.11.1, 2021-05-23T09:49:09. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -285,8 +285,9 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/alessio/Documents/prog/src/maura/g_comparaFile/g_comparaFile.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/alessio/Documents/prog/src/maura/g_comparaFile/g_comparaFile.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">g_comparaFile2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/Users/alessio/Documents/prog/src/maura/g_csvCompara/Confronta-csv/g_comparaFile.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/Users/alessio/Documents/prog/src/maura/g_csvCompara/Confronta-csv/g_comparaFile.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>
