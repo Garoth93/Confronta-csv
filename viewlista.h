@@ -23,7 +23,7 @@ public:
     ~viewLista();
 
     /** init*/
-    virtual void init(QString formatoSeparatore);
+    virtual void init();
 
     /** popola view con modello*/
     virtual void popolaModello();

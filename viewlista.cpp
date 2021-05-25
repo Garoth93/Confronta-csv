@@ -14,12 +14,13 @@ viewLista::~viewLista()
     delete ui;
 }
 
-void viewLista::init(QString formatoSeparatore)
+void viewLista::init()
 {
     m_modelPrincipale=nullptr;
     m_mappaPrinc=nullptr;
     listaCompare=nullptr;
     ui->b_addPrinc->setIcon(QIcon(":/entrata.png"));
+    ui->r_puntoVirgola->setChecked(true);
 
     connect(ui->b_addPrinc, &QToolButton::clicked, this, [=]()
     {
@@ -28,6 +29,16 @@ void viewLista::init(QString formatoSeparatore)
             return;
         popolaModello();
         popolaMappa();
+    });
+
+    connect(ui->r_puntoVirgola, &QRadioButton::clicked, this, [=]()
+    {
+        formatoSeparatore=";";
+    });
+
+    connect(ui->r_virgola, &QRadioButton::clicked, this, [=]()
+    {
+        formatoSeparatore=",";
     });
 }
 

@@ -28,14 +28,13 @@ MainWindow::~MainWindow()
 
 void MainWindow::init()
 {
-    ui->r_puntoVirgola->setChecked(true);
     ui->tb_view->setIcon(QIcon(":/monitor.png"));
     ui->b_controlla->setIcon(QIcon(":/arrow.png"));
     m_viewPrinc=new viewLista(this);
-    m_viewPrinc->init(formatoSeparatore);
+    m_viewPrinc->init();
     ui->l_layoutMain->addWidget(m_viewPrinc);
     m_viewCompare=new viewLista(this);
-    m_viewCompare->init(formatoSeparatore);
+    m_viewCompare->init();
     ui->l_layoutMain->addWidget(m_viewCompare);
     m_viewRis=new viewRisultati(this);
     m_viewRis->init();
@@ -60,19 +59,6 @@ void MainWindow::init()
             m_viewCompare->setVisible(true);
             statoVisualizza=0;
         }
-    });
-
-    connect(ui->r_puntoVirgola, &QRadioButton::clicked, this, [=]()
-    {
-        formatoSeparatore=";";
-        m_viewPrinc->setFormatoSeparatore(formatoSeparatore);
-        m_viewCompare->setFormatoSeparatore(formatoSeparatore);
-    });
-    connect(ui->r_virgola, &QRadioButton::clicked, this, [=]()
-    {
-        formatoSeparatore=",";
-        m_viewPrinc->setFormatoSeparatore(formatoSeparatore);
-        m_viewCompare->setFormatoSeparatore(formatoSeparatore);
     });
 }
 

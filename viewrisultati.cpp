@@ -123,7 +123,12 @@ void viewRisultati::salvaDati()
             if(y<(colRiga-1))
                 stream << QString("%1%2").arg(val).arg(separatore);
             else
-                stream << val << "\n";
+            {
+                if(x!=(righeModelo-1))
+                    stream << val << "\n";
+                else
+                    stream << val;
+            }
         }
     }
     file.close();
